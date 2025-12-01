@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="@color/background">
+
+
+
+    <TextView
+        android:id="@+id/auto_clean_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Auto Clean"
+        android:textColor="#43392E"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/frame"
+        app:layout_constraintStart_toStartOf="@id/frame"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/auto_clean_text">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/cleaning_fragment_cleaning_icon" />
+
+        <com.mukundafoods.chimneylauncherproduct.ui.animation.cleaningbackground.CleaningCircleBackground
+            android:id="@+id/cleaning_circle_black_background"
+            android:layout_width="215dp"
+            android:layout_height="215dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center" />
+
+        <com.mukundafoods.chimneylauncherproduct.ui.animation.cleaning.CleaningCircle
+            android:id="@+id/cleaning_circle"
+            android:layout_width="215dp"
+            android:layout_height="215dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/cleaning_time_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="170dp"
+        android:backgroundTint="#54ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/auto_clean_text">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="385dp"
+            android:layout_height="157dp"
+            android:background="@drawable/auto_clean_background"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/usage_time_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Total time usage of the chimney"
+                android:textColor="#84786A"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/fan_usage_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/poppins_extrabold"
+                android:text="1mm 12ss"
+                android:textColor="#40372C"
+                android:textSize="35dp"
+                android:textStyle="bold" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/start_auto_clean"
+        android:layout_width="337dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/auto_clean_background_selector"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Start Auto Clean"
+        android:textColor="#D7C9B9"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="@id/cleaning_time_layout"
+        app:layout_constraintStart_toStartOf="@id/cleaning_time_layout"
+        app:layout_constraintTop_toBottomOf="@id/cleaning_time_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

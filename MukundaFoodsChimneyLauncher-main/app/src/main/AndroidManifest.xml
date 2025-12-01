@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mukundafoods.chimneylauncherproduct"
+    >
+    <uses-feature android:name="android.hardware.usb.host" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.USB_PERMISSION" tools:ignore="MissingPermission" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <queries>
+        <package android:name="com.amazon.avod.thirdpartyclient" />
+        <package android:name="com.spotify.music" />
+        <package android:name="com.google.android.apps.youtube.music" />
+        <package android:name="com.google.android.youtube" />
+        <package android:name="com.gaana" />
+        <package android:name="com.amazon.mp3" />
+        <package android:name="com.jio.media.jiobeats" />
+        <package android:name="com.disney.disneyplus" />
+        <package android:name="com.graymatrix.did" />
+        <package android:name="in.swiggy.android" />
+        <package android:name="com.application.zomato" />
+        <package android:name="com.grofers.customerapp" />
+        <package android:name="com.bigbasket.mobileapp" />
+        <package android:name="com.amazon.mShop.android.shopping" />
+        <package android:name="com.android.chrome" />
+        <package android:name="com.google.android.apps.magazines" />
+        <package android:name="com.android.providers.calendar" />
+        <package android:name="com.google.android.keep" />
+        <package android:name="com.nstapp.bookmylpg" />
+        <package android:name="com.netflix.mediaclient"/>
+        <package android:name="com.bsbportal.music"/>
+        <package android:name="com.licious"/>
+        <package android:name="in.startv.hotstar"/>
+        <package android:name="com.sonyliv"/>
+        <package android:name="com.zeptoconsumerapp"/>
+        <package android:name="info.kfsoft.force.rotation"/>
+        <package android:name="com.tombayley.statusbar"/>
+    </queries>
+
+    <application
+        android:name="com.mukundafoods.chimneylauncherproduct.MyApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication"
+        tools:targetApi="31">
+        <activity
+            android:name="com.mukundafoods.chimneylauncherproduct.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensorLandscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/usb_device_filter" />
+        </activity>
+        <service android:name="com.mukundafoods.chimneylauncherproduct.ui.ymodule.SerialService" />
+<!--        <service android:name=".UsbService" />-->
+<!--        <receiver-->
+<!--            android:name=".UsbPermissionReceiver"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.mukundafoods.chimneylauncher.USB_PERMISSION" />-->
+<!--            </intent-filter>-->
+<!--         -->
+<!--        </receiver>-->
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <service android:name="com.mukundafoods.chimneylauncherproduct.ui.service.AutoCleaningService"
+            android:exported="false"/>
+        <service android:name="com.mukundafoods.chimneylauncherproduct.ui.service.CookingTimerService"
+            android:exported="false"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/app_installer_path"/>
+        </provider>
+        <activity android:name="com.mukundafoods.chimneylauncherproduct.ui.settings.qrcodetesting.QrCodeTestingActivity"/>
+        <activity android:name="com.mukundafoods.chimneylauncherproduct.ui.video.VideoActivity"/>
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+<!--        <service-->
+<!--            android:name=".AssistiveTouchService"-->
+<!--            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.accessibilityservice.AccessibilityService"/>-->
+<!--            </intent-filter>-->
+
+<!--            <meta-data-->
+<!--                android:name="android.accessibilityservice"-->
+<!--                android:resource="@xml/assistive_touch_service" />-->
+<!--        </service>-->
+    </application>
+
+</manifest>

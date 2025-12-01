@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="60dp"
+    android:layout_height="60dp"
+    android:background="@drawable/assistive_bubble_background"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/btnBubble"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_touch"
+        android:contentDescription="Assistive Touch" />
+
+</FrameLayout>
